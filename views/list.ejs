@@ -18,12 +18,15 @@
 
     <div class="box">
         <% for(var i=0; i< myListItems.length ; i++){ %>
-            <div class="item">
-                <input type="checkbox">
-                <p>
-                    <%= myListItems[i].item %>
-                </p>
-            </div>
+            <form action="/delete" method="POST">
+                <div class="item">
+                    <input type="checkbox" onchange=this.form.submit() name="checkedBox" value="<%=  myListItems[i]._id %>">
+                    <p>
+                        <%= myListItems[i].item %>
+                    </p>
+                </div>
+            </form>
+            
         <% } %>
 
                 <form action="/" class="item" method="POST">

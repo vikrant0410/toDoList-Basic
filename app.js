@@ -49,6 +49,16 @@ res.redirect("/");
 });
 
 
+// delete route
+app.post("/delete",(req,res)=>{
+    const checkedBoxId = req.body.checkedBox;
+    Items.deleteOne({_id:checkedBoxId},(err)=>{
+        if(!err){
+            res.redirect("/")
+        }
+    })
+})
+
 
 
 app.listen(process.env.PORT || 3000, () => {
